@@ -1,83 +1,34 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Anchor from '../components/Anchor';
+import Sidebar from '../components/Sidebar.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-	<p class="instructions">
-		Check out the <code>src/pages</code> directory to get started.<br />
-		<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-	</p>
-	<ul role="list" class="link-card-grid">
-		<Anchor href="https://docs.astro.build/" title="Documentation">Learn how Astro works and explore the official
-			API docs.</Anchor>
-		<Anchor href="https://astro.build/integrations/" title="Integrations">Supercharge your project with new
-			frameworks and libraries.</Anchor>
-		<Anchor href="https://astro.build/themes/" title="Themes">Explore a galaxy of community-built starter themes.
-		</Anchor>
-		<Anchor href="https://astro.build/chat/" title="Chat">Come say hi to our amazing Discord community. ❤️</Anchor>
-	</ul>
-</Layout>
+<BaseLayout title="Welcome to Astro.">
+	<div class="layout-grid">
+		<Sidebar custom-sidebar />
+		<div custom-container="content">
+			<h1>Hello</h1>
+		</div>
+	</div>
+</BaseLayout>
 
-<style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4F39FA, #DA62C4);
+<style lang="scss">
+	.layout-grid {
+		@apply grid;
+		grid-template-areas: "sidebar content content content";
+		grid-template-columns: 250px 1fr;
+
+		[custom-sidebar] {
+			grid-area: sidebar;
+		}
+
+		[custom-container=content] {
+			grid-area: content;
+		}
 	}
 
 	h1 {
 		margin: 2rem 0;
-	}
-
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
-
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-
-		50% {
-			background-position-y: 80%;
-		}
-	}
-
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4F39FA;
-		padding: 1.0rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
-
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
 	}
 </style>

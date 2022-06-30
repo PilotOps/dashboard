@@ -1,0 +1,20 @@
+---
+import Anchor from "./Anchor";
+import { range } from "../utils/range";
+---
+
+<div>
+  {range(10).map((i) => <Anchor custom-anchor>Sidebar Link {i}</Anchor>)}
+</div>
+
+
+<style lang="scss">
+  div {
+    @apply flex flex-col;
+    @apply p-3;
+
+    [custom-anchor] {
+      @apply px-5 py-3;
+    }
+  }
+</style>
