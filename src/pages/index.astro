@@ -1,34 +1,35 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Anchor from '../components/Anchor';
-import Sidebar from '../components/Sidebar.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+import Card from '../components/Card.astro';
+
+import { range } from "../utils/range";
 ---
 
-<BaseLayout title="Welcome to Astro.">
-	<div class="layout-grid">
-		<Sidebar custom-sidebar />
-		<div custom-container="content">
-			<h1>Hello</h1>
-		</div>
+<PageLayout title="Welcome to Astro.">
+	<h1>Hello</h1>
+	<div class="cards-grid">
+		{
+			range(4).map((i) => (
+				<Card>
+					<h2>Card {i}</h2>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum aliquid quisquam quod a reprehenderit autem dicta recusandae quis culpa, fugiat deserunt nulla dignissimos neque nisi provident qui, numquam cum maiores!</p>
+					<p>Animi nesciunt non in reprehenderit id, vel, veritatis ea sapiente doloribus nisi repellat facilis architecto officia, tempora sed facere asperiores saepe corrupti enim. Ea est corrupti maiores qui consectetur itaque.</p>
+					<p>Laudantium minima enim nostrum autem quas repellendus molestias expedita architecto nam fuga! Quas dolore natus laborum laudantium exercitationem, commodi nulla voluptate repellendus dolores explicabo enim non saepe ipsum molestiae quaerat!</p>
+					<p>Omnis cum nulla ut fugiat beatae dolore voluptatibus aspernatur vero fuga architecto hic quas blanditiis minus, ad consequuntur unde pariatur mollitia possimus explicabo accusamus iusto ipsa est officia. Voluptate, ad.</p>
+					<p>Facilis sit ratione consequatur, at non possimus. Doloribus reiciendis magni eveniet. Nulla officiis tenetur inventore cumque hic quia, ullam saepe, minus vitae repellendus, repudiandae sed placeat impedit autem id et?</p>
+				</Card>
+			))
+		}
 	</div>
-</BaseLayout>
+</PageLayout>
 
 <style lang="scss">
-	.layout-grid {
-		@apply grid;
-		grid-template-areas: "sidebar content content content";
-		grid-template-columns: 250px 1fr;
-
-		[custom-sidebar] {
-			grid-area: sidebar;
-		}
-
-		[custom-container=content] {
-			grid-area: content;
-		}
+	h1 {
 	}
 
-	h1 {
-		margin: 2rem 0;
+	.cards-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-gap: 20px;
 	}
 </style>
