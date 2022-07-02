@@ -11,7 +11,7 @@ import Icons from "unplugin-icons/vite";
 // https://astro.build/config
 export default defineConfig({
   integrations: [solid(), tailwind({ config: { applyBaseStyles: false } }), sitemap()],
-  experimental: { integrations: true },
+  // experimental: { integrations: true },
   vite: {
     ssr: { external: ["svgo"] },
     plugins: [

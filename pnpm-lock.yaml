@@ -4,6 +4,7 @@ specifiers:
   '@astrojs/sitemap': ^0.2.4
   '@astrojs/solid-js': ^0.2.0
   '@astrojs/tailwind': ^0.2.2
+  '@babel/core': ^7.0.0-0
   '@iconify-json/fluent': ^1.1.12
   astro: 1.0.0-beta.63
   astro-fonts: ^0.2.6
@@ -15,8 +16,9 @@ specifiers:
 
 devDependencies:
   '@astrojs/sitemap': 0.2.4
-  '@astrojs/solid-js': 0.2.0_solid-js@1.4.5
+  '@astrojs/solid-js': 0.2.0_wl4l5sb62af6mlu4nrwkekf7ea
   '@astrojs/tailwind': 0.2.2
+  '@babel/core': 7.18.6
   '@iconify-json/fluent': 1.1.12
   astro: 1.0.0-beta.63_sass@1.53.0
   astro-fonts: 0.2.6
@@ -126,13 +128,13 @@ packages:
       zod: 3.17.3
     dev: true
 
-  /@astrojs/solid-js/0.2.0_solid-js@1.4.5:
+  /@astrojs/solid-js/0.2.0_wl4l5sb62af6mlu4nrwkekf7ea:
     resolution: {integrity: sha512-gsRP5Ng3M3goYH6djTE9dL+/7FYHH5I3NvLSLrPAM/S8TwTLT+Vqcc9yiWlQ4/6lSDgEbeVpwNvW8lOWXkrM0Q==}
     engines: {node: ^14.15.0 || >=16.0.0}
     peerDependencies:
       solid-js: ^1.3.6
     dependencies:
-      babel-preset-solid: 1.4.5
+      babel-preset-solid: 1.4.5_@babel+core@7.18.6
       solid-js: 1.4.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -350,15 +352,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.18.7
-    dev: true
-
-  /@babel/plugin-syntax-jsx/7.18.6:
-    resolution: {integrity: sha512-6mmljtAedFGTWu2p/8WIORGwy+61PLgOMPOdazc7YoJ9ZCWUyFy3A6CpPkRKLKD1ToAesxX8KGEViAiLo9N+7Q==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/helper-plugin-utils': 7.18.6
     dev: true
 
   /@babel/plugin-syntax-jsx/7.18.6_@babel+core@7.18.6:
@@ -854,21 +847,21 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /babel-plugin-jsx-dom-expressions/0.33.11:
+  /babel-plugin-jsx-dom-expressions/0.33.11_@babel+core@7.18.6:
     resolution: {integrity: sha512-dDrPvr0RwU+IzNdCRuFz3MqtUMSvSI6Qvrgx1QuSCLO+OMB8PsGMKioy/SwQVhRpVfeaD0zKxe4wihwHnEnw5A==}
     dependencies:
       '@babel/helper-module-imports': 7.16.0
-      '@babel/plugin-syntax-jsx': 7.18.6
+      '@babel/plugin-syntax-jsx': 7.18.6_@babel+core@7.18.6
       '@babel/types': 7.18.7
       html-entities: 2.3.2
     transitivePeerDependencies:
       - '@babel/core'
     dev: true
 
-  /babel-preset-solid/1.4.5:
+  /babel-preset-solid/1.4.5_@babel+core@7.18.6:
     resolution: {integrity: sha512-9ryx+y9aXklHJrUTxEk92HVDl563sYqtVKxKT+gdjqbHjfVx9mZfZMo5NAasAsBwabdesK0mkR2Bq+jX8MnYFg==}
     dependencies:
-      babel-plugin-jsx-dom-expressions: 0.33.11
+      babel-plugin-jsx-dom-expressions: 0.33.11_@babel+core@7.18.6
     transitivePeerDependencies:
       - '@babel/core'
     dev: true
