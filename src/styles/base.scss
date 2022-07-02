@@ -1,6 +1,11 @@
+:root {
+  --bg: #edf1f2;
+  --card: #f5f9fa;
+}
+
 html {
   color-scheme: light;
-  @apply bg-[#edf1f2] text-black;
+  @apply bg-[color:var(--bg)] text-black;
 }
 
 html.dark {
@@ -36,7 +41,8 @@ a {
 }
 
 :where(:is(h1, h2, h3, h4, h5, h6)) {
-  @apply pt-12 font-[600];
+  @apply font-[600];
+  // pt-12 
 }
 
 h1 {

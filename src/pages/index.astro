@@ -6,30 +6,30 @@ import { range } from "../utils/range";
 ---
 
 <PageLayout title="Welcome to Astro.">
-	<h1>Hello</h1>
-	<div class="cards-grid">
-		{
-			range(4).map((i) => (
-				<Card>
-					<h2>Card {i}</h2>
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum aliquid quisquam quod a reprehenderit autem dicta recusandae quis culpa, fugiat deserunt nulla dignissimos neque nisi provident qui, numquam cum maiores!</p>
-					<p>Animi nesciunt non in reprehenderit id, vel, veritatis ea sapiente doloribus nisi repellat facilis architecto officia, tempora sed facere asperiores saepe corrupti enim. Ea est corrupti maiores qui consectetur itaque.</p>
-					<p>Laudantium minima enim nostrum autem quas repellendus molestias expedita architecto nam fuga! Quas dolore natus laborum laudantium exercitationem, commodi nulla voluptate repellendus dolores explicabo enim non saepe ipsum molestiae quaerat!</p>
-					<p>Omnis cum nulla ut fugiat beatae dolore voluptatibus aspernatur vero fuga architecto hic quas blanditiis minus, ad consequuntur unde pariatur mollitia possimus explicabo accusamus iusto ipsa est officia. Voluptate, ad.</p>
-					<p>Facilis sit ratione consequatur, at non possimus. Doloribus reiciendis magni eveniet. Nulla officiis tenetur inventore cumque hic quia, ullam saepe, minus vitae repellendus, repudiandae sed placeat impedit autem id et?</p>
-				</Card>
-			))
-		}
+	<div custom-layout>
+		<h1>Hello</h1>
+		<div class="cards-grid">
+			{
+				range(4).map(i => (
+					<Card>
+						<h3>Card {i + 1}</h3>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum aliquid quisquam quod a reprehenderit autem dicta recusandae quis culpa, fugiat deserunt nulla dignissimos neque nisi provident qui, numquam cum maiores!</p>
+					</Card>
+				))
+			}
+		</div>
 	</div>
 </PageLayout>
 
 <style lang="scss">
-	h1 {
+	[custom-layout] {
+		@apply container max-w-screen-md;
 	}
 
 	.cards-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		grid-gap: 20px;
+		@apply py-3;
 	}
 </style>

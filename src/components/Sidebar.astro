@@ -4,18 +4,19 @@ import { range } from "../utils/range";
 ---
 
 <div custom-sidebar {...Astro.props}>
-  {range(10).map((i) => <Anchor custom-anchor>Sidebar Link {i}</Anchor>)}
+  {range(10).map((i) => <Anchor custom-anchor>Sidebar Link {i + 1}</Anchor>)}
 </div>
 
 
 <style lang="scss">
   [custom-sidebar] {
     @apply bg-blue-200;
-    @apply flex flex-col;
-    @apply pt-16 px-3 pb-3;
+    @apply flex flex-col gap-2;
+    @apply p-3;
 
     [custom-anchor] {
       @apply px-5 py-3;
+      @apply bg-blue-500/20;
     }
   }
 </style>
