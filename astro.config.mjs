@@ -10,10 +10,11 @@ import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://astro-dashboard.netlify.app",
   integrations: [solid(), tailwind({ config: { applyBaseStyles: false } }), sitemap()],
   // experimental: { integrations: true },
   vite: {
-    ssr: { external: ["svgo"] },
+    ssr: { external: ["svgo", "https"] },
     plugins: [
       AutoImport({
         resolvers: [
