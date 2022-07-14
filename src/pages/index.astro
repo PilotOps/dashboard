@@ -10,7 +10,7 @@ import { range } from "../utils/range";
 		<h1>Hello</h1>
 		<div class="cards-grid">
 			{
-				range(4).map(i => (
+				range(14).map(i => (
 					<Card>
 						<h3>Card {i + 1}</h3>
 						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum aliquid quisquam quod a reprehenderit autem dicta recusandae quis culpa, fugiat deserunt nulla dignissimos neque nisi provident qui, numquam cum maiores!</p>
@@ -23,7 +23,8 @@ import { range } from "../utils/range";
 
 <style lang="scss">
 	[custom-layout] {
-		@apply container max-w-screen-md;
+		@apply container max-w-screen-lg;
+		@apply px-6 py-10;
 	}
 
 	.cards-grid {

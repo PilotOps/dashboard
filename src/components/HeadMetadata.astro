@@ -22,6 +22,19 @@ const {
 
 <meta name="keywords" content={keywords} />
 
+<!-- Theme set-->
+<script>
+  // @ts-ignore
+  // import { runTheme } from "../scripts/theme";
+  const html = document.querySelector('html');
+  // runTheme(html);
+  setTimeout(() => {
+    html?.classList?.add?.("dom-loaded");
+  }, 100);
+  // import "../scripts/measure";
+  // import "../scripts/main";
+</script>
+
 <!-- <meta name="og:locale" content="en_Us" />
 <meta property="og:type" content="website" />
 

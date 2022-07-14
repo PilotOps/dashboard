@@ -1,35 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Anchor from '../components/Anchor';
-import Sidebar from '../components/Sidebar.astro';
 ---
 
 <BaseLayout title="Welcome to Astro." {...Astro.props}>
-	<div class="layout-grid">
-		<Sidebar custom-sidebar />
-		<div custom-container="content">
-			<slot />
-		</div>
-	</div>
+	<slot />
 </BaseLayout>
-
-<style lang="scss">
-	.layout-grid {
-		grid-template-areas: "sidebar content";
-		grid-template-columns: 250px 1fr;
-
-		@apply pt-16;
-		@apply grid;
-		
-		[custom-sidebar] {
-			grid-area: sidebar;
-		}
-
-		[custom-container=content] {
-			grid-area: content;
-			min-width: 0;
-
-			@apply px-6 py-10;
-		}
-	}
-</style>

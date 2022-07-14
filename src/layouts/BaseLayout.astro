@@ -3,6 +3,7 @@ import { Font } from 'astro-fonts';
 import '../styles/global.scss';
 
 import HeadMetadata from '../components/HeadMetadata.astro';
+import Sidebar from '../components/Sidebar/Sidebar.astro';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 import Anchor from '../components/Anchor';
@@ -15,18 +16,39 @@ const content = Astro?.props?.content ?? Astro?.props;
 
 <head>
   <HeadMetadata title={content.title} description={content.description} />
-  <!-- <Font family="Manrope" weights={"200..800"} local /> -->
+  <Font family="Manrope" weights={"200..800"} local />
+  <style lang="scss">
+    .layout-grid {
+      grid-template-areas: "sidebar content";
+      grid-template-columns: 250px 1fr;
+
+      @apply grid h-[100vh];
+
+      [custom-sidebar] {
+        grid-area: sidebar;
+      }
+
+      [custom-container=content] {
+        grid-area: content;
+        min-width: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <Navbar />
   <Anchor id="skip-main" href="#content">Skip to main content</Anchor>
+  <div class="layout-grid">
+    <Sidebar custom-sidebar />
 
-  <main id="main" data-wrapper>
-    <slot />
-  </main>
+    <main id="main" data-wrapper custom-container="content">
+      <Navbar />
 
-  <Footer />
+      <slot />
+
+      <Footer />
+    </main>
+  </div>
 </body>
 
 </html>

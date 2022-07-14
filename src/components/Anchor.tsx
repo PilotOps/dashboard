@@ -19,7 +19,7 @@ export function Anchor(props?: ComponentProps<'a'> & { external?: boolean }) {
     >
       {mergedProps.children}
       <Show when={newProps.external}>
-        <IconArrow astro-icon="fluent:arrow-up-right-24-regular" custom-icon />
+        <IconArrow astro-icon="fluent:arrow-up-right-24-regular" custom-icon="external-icon" />
       </Show>
     </a>
   );

@@ -1,0 +1,19 @@
+---
+import Anchor from "../Anchor";
+---
+
+<Anchor custom-sidebar-link custom-anchor {...Astro.props}>
+  <slot name="icon" />
+  <slot />
+</Anchor>
+
+<style lang="scss">
+  [custom-anchor] {
+    @apply px-3 py-3;
+    @apply bg-blue-500/20;
+
+    @apply no-underline;
+    @apply flex flex-row gap-2;
+    @apply items-center;
+  }
+</style>

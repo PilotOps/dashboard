@@ -1,0 +1,72 @@
+---
+import Icon from 'astro-icon';
+
+import Anchor from "../Anchor";
+import SidebarLink from "./SidebarLink.astro";
+import SidebarDropdown from './SidebarDropdown.astro';
+
+import { range } from "../../utils/range";
+---
+
+<div custom-sidebar {...Astro.props}>
+  <div class="sidebar-sticky">
+    <Anchor custom-anchor>Dashboard</Anchor>
+    <div class="sidebar-content">
+      {
+      range(10).map((i) =>
+      <SidebarLink custom-anchor>
+        <Icon custom-icon name="fluent:circle-24-regular" />
+        Sidebar Link {i + 1}
+      </SidebarLink>
+      )
+      }
+    </div>
+    <SidebarDropdown custom-details client:load>
+      <Icon class="sidebar-icon" slot="icon" name="fluent:circle-24-regular" custom-icon />
+      <p slot="summary">Sidebar Link Dropdown</p>
+
+      {
+      range(10).map((i) =>
+      <SidebarLink custom-anchor>
+        <Icon custom-icon name="fluent:circle-24-regular" />
+        Sidebar Link {i + 1}
+      </SidebarLink>
+      )
+      }
+    </SidebarDropdown>
+  </div>
+</div>
+
+
+<style lang="scss">
+  [custom-sidebar] {
+    @apply bg-blue-200;
+  }
+
+  .sidebar-sticky {
+    @apply sticky top-0;
+    @apply p-3;
+    @apply overflow-auto max-h-full;
+    @apply flex flex-col gap-2;
+  }
+
+  .sidebar-content {
+    @apply flex flex-col gap-2;
+
+
+
+    .sidebar-icon {
+      @apply w-[1em] h-[1em];
+    }
+
+
+    [custom-anchor] {
+      @apply px-5 py-3;
+      @apply bg-blue-500/20;
+
+      [custom-icon] {
+        @apply w-[1em] h-[1em];
+      }
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import Details from "../Details";
+
+---
+
+<Details class="sidebar-dropdown" custom-sidebar-dropdown custom-details client:load {...Astro.props}>
+  <Fragment slot="summary">
+    <slot name="icon" />
+    <slot name="summary" />
+  </Fragment>
+  <slot />
+</Details>
+
+<style lang="scss">
+  .sidebar-dropdown {
+    :global([custom-summary]) {
+      @apply px-3 py-3;
+      @apply bg-blue-500/20;
+
+      @apply no-underline;
+      @apply flex flex-row gap-2;
+      @apply items-center;
+
+      [custom-icon] {
+        @apply w-[1em] h-[1em];
+      }
+
+      &:nth-child-(2) {
+        @apply flex-grow;
+      }
+    }
+  }
+</style>
